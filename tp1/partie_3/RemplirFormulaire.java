@@ -1,23 +1,55 @@
 package partie_3;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.io.PrintStream;
 
 public class RemplirFormulaire {
 
 	public static void main(String[] args) {
+	
 		
+		
+		// modifier la sortie standar et lentree standar
+
+		PrintStream out=null;
+		BufferedInputStream in=null;
+		
+		try {
+			
+			in = new BufferedInputStream( new FileInputStream("C:\\Users\\l16024220\\Desktop\\test\\entree.txt") );
+		    System.setIn(in);
+		    
+		    out = new PrintStream( new BufferedOutputStream( new FileOutputStream("C:\\Users\\l16024220\\Desktop\\test\\sortie.txt") ) );
+		    System.setOut(out);
+
+		    BufferedReader br = new BufferedReader( new InputStreamReader(System.in) );
+		    
+		    String s;
+		    
+		    while((s = br.readLine()) != null)
+		        System.out.println(s);
+		    
+		}catch( Exception e) {
+			
+		}finally {
+			out.close();
+		}
+
+
+		
+		
+		// ca marche mais nous on veut rediriger la sortie & entree standard
+		/*
 		String fichier_entree="/home/pc/rep_test/user";
 		String fichier_sortie="/home/pc/rep_test/resultat";
 		
 		try {
-			
+						
 			InputStream flux_in=new FileInputStream(fichier_entree); 
 			InputStreamReader lecture=new InputStreamReader(flux_in);
 			BufferedReader buff_in=new BufferedReader(lecture);
@@ -41,7 +73,7 @@ public class RemplirFormulaire {
 		}
 		catch(Exception e){
 			System.out.println(e.toString());
-		}
+		}*/
 		
 	}
 
