@@ -5,7 +5,35 @@ import java.io.File;
 public class SynchroniserDossiers {
 	
 	private static void recursive(String source, String dest, int p_c_date, int p_c_taille) {
-		//if
+		
+		// si on a 2 dossiers, on verifie qu'on y a accées et on appel recursivement sur chaque contenue du rep1 et du rep2
+		if( new File(source)!= null && (new File(source)).isDirectory() && new File(dest)!= null && (new File(dest)).isDirectory() )
+		{
+			File fs = new File(source);
+			File fd = new File(dest);
+		
+			String fichiers[] = fs.list();
+			String fichierd[] = fd.list();
+			
+			for (int i= 0; i<fichiers.length; i++) {
+				for (int j= 0; j<fichierd.length; j++) {
+					if ( fs.getName().equals( fd.getName() ) )
+						recursive(fs.getName(),fd.getName(),p_c_date,p_c_taille);
+				}
+			}
+		}
+		// si on a 2 fichiers
+		else if( new File(source)!= null && (new File(source)).isFile() && new File(dest)!= null && (new File(dest)).isFile() )
+		{
+			// si on a 2 fichiers de meme noms
+			if( ( (new File(source)).getName() ).equals( (new File(dest)).getName() )    )
+				if( p_c_date == 1 )
+					
+			
+		}
+			
+			
+			
 	}
 	
 	public static void main(String[] args) {
