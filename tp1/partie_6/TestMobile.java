@@ -9,6 +9,10 @@ public class TestMobile {
 
 	public static void main(String[] args) {
 
+		
+						//		Question 6.1.a
+		
+		
 		Mobile m1 = new Mobile("samsung", "8", 9, 4, true, 800);
 		
 		// stockage
@@ -18,6 +22,8 @@ public class TestMobile {
 		
 		try {
 			fos = new FileOutputStream("C:\\Users\\l16024220\\Desktop\\test\\stocktel.txt");
+			//fos = new FileOutputStream("/home/pc/test.txt");
+
 			oos = new ObjectOutputStream(fos);
 			
 			oos.writeObject(m1);
@@ -35,6 +41,8 @@ public class TestMobile {
 
 		try {
 			fis = new FileInputStream("C:\\Users\\l16024220\\Desktop\\test\\stocktel.txt");
+//			fis = new FileInputStream("/home/pc/test.txt");
+
 			ois = new ObjectInputStream(fis);
 			
 			m2 = (Mobile) ois.readObject();
