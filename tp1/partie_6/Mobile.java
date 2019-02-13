@@ -1,5 +1,6 @@
 package partie_6;
 
+
 import java.io.Serializable;
 
 public class Mobile implements Serializable{
