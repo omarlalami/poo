@@ -5,14 +5,35 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class TestMobile_6_1_b {
-	
+public class TestMobile_6_1_d {
+
 	public static void main(String[] args) {
 		
 		
-		//		Question 6.1.b
+		//		Question 6.1.d
+/*
+ * on appel le code pour stocker et on commente la partie destockage
+ * on execute le code
+ * on ajoute des donnes membre a la classe
+ * on commente le code pour stocket et on appel le code pour destocker
+ * ps : ne pas oublier d'adapter la class Mobile : variable masse & methode toString
+ * 
+ */
+ 		// en changeant SVUID
+		// ici je l'ai pas tester a cause du 6.1.c
 		
-
+		
+ 		// sans changer SVUID
+ 		/*une fois stocker, lorsqu'on rajoute une variable a la classe et que l'on recupere les donnes du fichier
+		 * nos objets on les valeurs par default pour les variable nouvelles qu'on a inserer dans la classe
+		 * 
+		 * Par contre lorsqu'on stock nos objets avec a variable masse et que l'on modifie notre classe
+		 * en enlevant cette variable avant de destocker
+		 * le programme ne recupere pas la valeur de masse 
+		 */
+		
+		
+		/*
  		Mobile m1 = new Mobile("samsung", "8", 8, 4, true, 800);
  		Mobile m2 = new Mobile("sony", "9", 5, 5, true, 700);
  		Mobile m3 = new Mobile("iphone", "10", 6, 2, true, 1000);
@@ -33,8 +54,17 @@ public class TestMobile_6_1_b {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
- 		
+		
+		
+		
+		*/
+		
+		
+		
+ 	
+		
  		// destockage
+ 		
 
  		Mobile m5=null;
  		Mobile m6=null;
@@ -59,31 +89,12 @@ public class TestMobile_6_1_b {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+ 		
+		
+		
+		
+		
+		
+	}
 
- 		
-		//		Question 6.1.c
- 		
- 		/*
- 		 * j'ai esseeyr de faire des test en modifiant serialVersionUID a 1L 2L .... mais le retour est pareil
- 		 * 
- 		 * j'ai separer l'ecriture et lecture en changeant serialVersionUID etre les 2 mais toujours pareil
- 		 * 
- 		 * conclusion : a priori le serialVersionUID n'influ pas .... c'est bizarre
- 		 * 
- 		 */
- 		
- 		
-		//		Question 6.1.d
-
- 		
- 		// sans changer SVUID
- 		
- 		
- 		
- 		
- 		// en changeant SVUID
- 		
- 		
- 		
- 	}
 }

@@ -19,6 +19,7 @@ public class Mobile implements Serializable{
 	Integer RAM;
 	Boolean Capacite4gPlus;
 	float prix;
+	//double masse=7.5;
 	
 	
 	public Mobile(String construteur, String modele, int nbPixels, Integer rAM, Boolean capacite4gPlus, float prix) {
@@ -29,14 +30,22 @@ public class Mobile implements Serializable{
 		RAM = rAM;
 		Capacite4gPlus = capacite4gPlus;
 		this.prix = prix;
+		//this.masse=7.5;
 	}
 
 
 	@Override
 	public String toString() {
 		return "Mobile [Construteur=" + Construteur + ", Modele=" + Modele + ", NbPixels=" + NbPixels + ", RAM=" + RAM
-				+ ", Capacite4gPlus=" + Capacite4gPlus + ", prix=" + prix + "]";
+				+ ", Capacite4gPlus=" + Capacite4gPlus + ", prix=" + prix + ", Masse="+"]";
 	}
-	
+
+	/*
+	@Override
+	public String toString() {
+		return "Mobile [Construteur=" + Construteur + ", Modele=" + Modele + ", NbPixels=" + NbPixels + ", RAM=" + RAM
+				+ ", Capacite4gPlus=" + Capacite4gPlus + ", prix=" + prix + ", Masse=" + masse +"]";
+	}
+	*/
 
 }

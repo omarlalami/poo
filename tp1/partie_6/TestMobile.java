@@ -10,8 +10,9 @@ public class TestMobile {
 	public static void main(String[] args) {
 
 		
-						//		Question 6.1.a
-		
+		//		Question 6.1.a
+ 		
+ 		
 		
 		Mobile m1 = new Mobile("samsung", "8", 9, 4, true, 800);
 		
@@ -21,8 +22,8 @@ public class TestMobile {
 		ObjectOutputStream oos=null;
 		
 		try {
-			fos = new FileOutputStream("C:\\Users\\l16024220\\Desktop\\test\\stocktel.txt");
-			//fos = new FileOutputStream("/home/pc/test.txt");
+			//fos = new FileOutputStream("C:\\Users\\l16024220\\Desktop\\test\\stocktel.txt");
+			fos = new FileOutputStream("/home/pc/test.txt");
 
 			oos = new ObjectOutputStream(fos);
 			
@@ -32,7 +33,11 @@ public class TestMobile {
 			e.printStackTrace();
 		}
 		
+		
+		
 		// destockage
+		
+		
 		
 		Mobile m2=null;
 		
@@ -40,8 +45,8 @@ public class TestMobile {
 		ObjectInputStream ois=null;
 
 		try {
-			fis = new FileInputStream("C:\\Users\\l16024220\\Desktop\\test\\stocktel.txt");
-//			fis = new FileInputStream("/home/pc/test.txt");
+		//	fis = new FileInputStream("C:\\Users\\l16024220\\Desktop\\test\\stocktel.txt");
+			fis = new FileInputStream("/home/pc/test.txt");
 
 			ois = new ObjectInputStream(fis);
 			
@@ -53,6 +58,9 @@ public class TestMobile {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		
 		
 	}
 
