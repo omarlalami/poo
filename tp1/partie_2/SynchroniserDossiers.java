@@ -1,12 +1,15 @@
 package partie_2;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.sql.Date;
 
 public class SynchroniserDossiers {
 	
 	private static void recursive(String source, String dest, int p_c_date, int p_c_taille) {
 		
-		// si on a 2 dossiers, on verifie qu'on y a accées et on appel recursivement sur chaque contenue du rep1 et du rep2
+		// si on a 2 dossiers, on verifie qu'on y a accees et on appel recursivement sur chaque contenue du rep1 et du rep2
 		if( new File(source)!= null && (new File(source)).isDirectory() && new File(dest)!= null && (new File(dest)).isDirectory() )
 		{
 			File fs = new File(source);
@@ -26,8 +29,36 @@ public class SynchroniserDossiers {
 		else if( new File(source)!= null && (new File(source)).isFile() && new File(dest)!= null && (new File(dest)).isFile() )
 		{
 			// si on a 2 fichiers de meme noms
-			if( ( (new File(source)).getName() ).equals( (new File(dest)).getName() )    )
-				if( p_c_date == 1 )
+			if( ( (new File(source)).getName() ).equals( (new File(dest)).getName() )    ) {
+				
+				if( p_c_date == 1 ) {			// on verifie si on a choisi une synchro par date
+					
+					Date d1 = new Date((new File(source)).lastModified());
+					Date d2 = new Date((new File(dest)).lastModified());
+
+					if ( d1.compareTo(d2)>0)	// si source est plus recent
+						try {
+							Files.copy( (new File(source)).toPath() , (new File(dest)).toPath());
+						} catch (IOException e) {
+							e.printStackTrace();
+						}	
+					else						// si dest est plus recent
+						try {
+							Files.copy( (new File(dest)).toPath() , (new File(source)).toPath());
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+				}
+				else {							// si c'est pas une synchro par date alors soit c'est par taille qui a etais choisi, soit aucun des deux et du coup par taille devient le traitement par default pour mon cas
+					try {
+						Files.copy( (new File(source)).toPath() , (new File(dest)).toPath());
+					} catch (IOException e) {
+						e.printStackTrace();
+					}	
+				}
+
+				
+			}
 					
 			
 		}
