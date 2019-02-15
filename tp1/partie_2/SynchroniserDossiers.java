@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.sql.Date;
-import java.util.logging.FileHandler;
 
 import org.apache.commons.io.FileUtils;
 
