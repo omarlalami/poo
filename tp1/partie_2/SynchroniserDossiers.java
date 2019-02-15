@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.sql.Date;
+import java.util.logging.FileHandler;
+
+import org.apache.commons.io.FileUtils;
 
 public class SynchroniserDossiers {
 	
@@ -12,22 +15,27 @@ public class SynchroniserDossiers {
 		// si on a 2 dossiers, on verifie qu'on y a accees et on appel recursivement sur chaque contenue du rep1 et du rep2
 		if( new File(source)!= null && (new File(source)).isDirectory() && new File(dest)!= null && (new File(dest)).isDirectory() )
 		{
+			System.out.println("on a 2 repertoires, on appel la fonction recursive");
 			File fs = new File(source);
 			File fd = new File(dest);
 		
 			String fichiers[] = fs.list();
 			String fichierd[] = fd.list();
-			
+
 			for (int i= 0; i<fichiers.length; i++) {
 				for (int j= 0; j<fichierd.length; j++) {
-					if ( fs.getName().equals( fd.getName() ) )
-						recursive(fs.getName(),fd.getName(),p_c_date,p_c_taille);
+					if ( fichiers[i].equals(fichierd[j]) ) {
+						System.out.println(source+"/"+fichiers[i] + " " +dest+"/"+fichierd[j]);
+						recursive(source+"/"+fichiers[i] ,dest+"/"+fichierd[j],p_c_date,p_c_taille);
+					}
 				}
 			}
 		}
 		// si on a 2 fichiers
 		else if( new File(source)!= null && (new File(source)).isFile() && new File(dest)!= null && (new File(dest)).isFile() )
 		{
+			System.out.println("on a 2 fichiers, on copi");
+
 			// si on a 2 fichiers de meme noms
 			if( ( (new File(source)).getName() ).equals( (new File(dest)).getName() )    ) {
 				
@@ -51,12 +59,12 @@ public class SynchroniserDossiers {
 				}
 				else {							// si c'est pas une synchro par date alors soit c'est par taille qui a etais choisi, soit aucun des deux et du coup par taille devient le traitement par default pour mon cas
 					try {
-						Files.copy( (new File(source)).toPath() , (new File(dest)).toPath());
+						FileUtils.copyFile((new File(source)), (new File(dest)));
 					} catch (IOException e) {
 						e.printStackTrace();
 					}	
 				}
-
+// la fonction copy est a corriger .... sa copy mais pas forcement du bon source au bon dest
 				
 			}
 					
@@ -69,10 +77,7 @@ public class SynchroniserDossiers {
 	
 	public static void main(String[] args) {
 		
-		
-		
-		//					A FINIR
-		
+				
 		
 		
 				// APPEL PROGRAMME EXEMPLE !		A LIRE
@@ -91,7 +96,7 @@ public class SynchroniserDossiers {
 						// ICI JE FAIT LE PARAMETRAGE PAR DEFAULT
 		
 		
-		
+/*		
 		// 0 signifie que l'on n'a pas activé de priorité !
 		
 		int priorite_critere_date=0;
@@ -153,8 +158,10 @@ public class SynchroniserDossiers {
 		
 		recursive(args[0],args[1],priorite_critere_date,priorite_critere_taille);
 		
+		*/
 		
-		
+		recursive("/home/pc/test/source","/home/pc/test/dest",0,1);
+
 		
 		
 	}
