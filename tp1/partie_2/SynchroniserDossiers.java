@@ -31,7 +31,7 @@ public class SynchroniserDossiers {
 				}
 			}
 		}
-		// si on a 2 fichiers
+		// si on a 2 fichiers de meme noms et meme repertoire
 		else if( new File(source)!= null && (new File(source)).isFile() && new File(dest)!= null && (new File(dest)).isFile() )
 		{
 			System.out.println("on a 2 fichiers, on copi");
@@ -58,8 +58,13 @@ public class SynchroniserDossiers {
 						}
 				}
 				else {							// si c'est pas une synchro par date alors soit c'est par taille qui a etais choisi, soit aucun des deux et du coup par taille devient le traitement par default pour mon cas
+					
 					try {
-						FileUtils.copyFile((new File(source)), (new File(dest)));
+						if ( (new File(source)).length() > (new File(dest)).length() )					
+							FileUtils.copyFile((new File(source)), (new File(dest)));
+						else
+							FileUtils.copyFile((new File(dest)), (new File(source)));
+
 					} catch (IOException e) {
 						e.printStackTrace();
 					}	
@@ -67,11 +72,14 @@ public class SynchroniserDossiers {
 // la fonction copy est a corriger .... sa copy mais pas forcement du bon source au bon dest
 				
 			}
+			else {// si o a 2 fichiers mais de noms differents
+				
+				// TODO
+				
+			}
 					
 			
 		}
-			
-			
 			
 	}
 	
