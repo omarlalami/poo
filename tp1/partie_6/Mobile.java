@@ -1,6 +1,7 @@
 package partie_6;
 
 
+import java.io.IOException;
 import java.io.Serializable;
 
 public class Mobile implements Serializable{
@@ -19,7 +20,7 @@ public class Mobile implements Serializable{
 	int NbPixels;
 	Integer RAM;
 	Boolean Capacite4gPlus;
-	float prix;
+	transient float prix;	// cette attribut ne sera pas serialiser
 	//double masse=7.5;
 	
 	
@@ -48,5 +49,10 @@ public class Mobile implements Serializable{
 				+ ", Capacite4gPlus=" + Capacite4gPlus + ", prix=" + prix + ", Masse=" + masse +"]";
 	}
 	*/
-
+	
+	private void readObject() throws IOException, ClassNotFoundException{	// a finir ca
+		
+		defaultReadObject();
+		this.prix=100;
+	}
 }
