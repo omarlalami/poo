@@ -15,19 +15,24 @@ public class TestClientTCP {
 			
 			
 			//on a nos input & output
-			OutputStream os = s.getOutputStream();
+			OutputStream os = s.getOutputStream();	// la c'est des octets
 			InputStream is = s.getInputStream();
 			
-	        BufferedOutputStream bos = new BufferedOutputStream(os);
-	        BufferedInputStream bis = new BufferedInputStream(is);
+	        PrintWriter pos = new PrintWriter(os);
+	        BufferedReader  bis = new BufferedReader(new InputStreamReader(s.getInputStream()));
+	        
+	        
 	        
 	        
 			// client demande des donnes a lutilisateur & les envoi au serveur
 			System.out.println("Client : saisissez des donnees ...");
 			Scanner sc = new Scanner(System.in);
-			bos.write((sc.nextLine()).getBytes());
+			String lu = sc.nextLine();
 
-			System.out.println("Client recoit du serveur :" + bis.read());
+			pos.println(lu);
+			pos.flush();
+
+			System.out.println("Client recoit du serveur :" + bis.readLine());
 			
 			
 			// client se deconecte
