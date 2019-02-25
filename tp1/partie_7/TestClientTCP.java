@@ -16,14 +16,11 @@ public class TestClientTCP {
 			
 			//on a nos input & output
 			OutputStream os = s.getOutputStream();	// la c'est des octets
-			InputStream is = s.getInputStream();
 			
 	        PrintWriter pos = new PrintWriter(os);
 	        BufferedReader  bis = new BufferedReader(new InputStreamReader(s.getInputStream()));
 	        
-	        
-	        
-	        
+	     
 			// client demande des donnes a lutilisateur & les envoi au serveur
 			System.out.println("Client : saisissez des donnees ...");
 			Scanner sc = new Scanner(System.in);
