@@ -52,7 +52,9 @@ public class Mobile implements Serializable{
 	
 	private void readObject() throws IOException, ClassNotFoundException{	// a finir ca
 		
-		defaultReadObject();
+		//fonction non complete a finir
+		
+		//defaultReadObject();
 		this.prix=100;
 	}
 }

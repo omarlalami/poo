@@ -7,6 +7,7 @@ import java.sql.Date;
 
 import org.apache.commons.io.FileUtils;
 
+
 public class SynchroniserDossiers {
 	
 	private static void recursive(String source, String dest, int p_c_date, int p_c_taille) {
