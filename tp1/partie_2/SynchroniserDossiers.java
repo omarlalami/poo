@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.sql.Date;
 
-import org.apache.commons.io.FileUtils;
+//import org.apache.commons.io.FileUtils;
 
 
 public class SynchroniserDossiers {
@@ -59,16 +59,16 @@ public class SynchroniserDossiers {
 				}
 				else {							// si c'est pas une synchro par date alors soit c'est par taille qui a etais choisi, soit aucun des deux et du coup par taille devient le traitement par default pour mon cas
 					
-					try {
+		/*			try {
 						if ( (new File(source)).length() > (new File(dest)).length() )					
-							FileUtils.copyFile((new File(source)), (new File(dest)));
-						else
-							FileUtils.copyFile((new File(dest)), (new File(source)));
+		//					FileUtils.copyFile((new File(source)), (new File(dest)));
+					//	else
+			//				FileUtils.copyFile((new File(dest)), (new File(source)));
 
 					} catch (IOException e) {
 						e.printStackTrace();
 					}	
-				}
+				*/}
 // la fonction copy est a corriger .... sa copy mais pas forcement du bon source au bon dest
 				
 			}

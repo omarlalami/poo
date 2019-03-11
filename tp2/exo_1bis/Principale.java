@@ -4,6 +4,8 @@ public class Principale {
 
 	public static void main(String[] args) {
 
+		
+		// Question a
 /*
 		int distance=20;
 		
@@ -16,7 +18,9 @@ public class Principale {
 		k2.start();
 		
 */
-		
+		// Question b
+
+/*		
 		int distance=100;
 		
 		Kart k1 = new Kart(distance,"mario",1,null);
@@ -31,7 +35,25 @@ public class Principale {
 		}
 
 		k2.start();
+*/
 		
+		// Question c
+
+		int distance=100;
+		Starter bobby = new Starter();
+		
+		
+		Kart k1 = new Kart(distance,"mario",bobby);
+		Kart k2 = new Kart(distance,"luigi",bobby);
+		
+		
+	//	bobby.start();
+
+		
+		k1.start();
+		k2.start();
+		
+		bobby.start();
 		
 	}
 
