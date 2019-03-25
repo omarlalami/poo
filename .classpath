@@ -4,6 +4,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="tp1"/>
 	<classpathentry kind="src" path="tp2"/>
+	<classpathentry kind="src" path="tp2_nico"/>
 	<classpathentry kind="lib" path="/home/pc/mon_workspace_eclipse/poo/tous_les_tps_de_poo/tp1/partie_2/commons-io-2.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
