@@ -15,16 +15,18 @@ public class Familles implements Component {
 		Component couple=null ;
 		
 		for(Component c : familles) {
-			if(c instanceof Individu) {
-				if(c.equals(i1))
+			//if(c instanceof Individu) {
+				if(c.equals(i1)) {
 					couple = new Couple(i1, i2, new Date(2005,02,01) );
-			}
+					System.out.println("mise a jour");
+				}
+			//}
 		}
 		for(Component c : familles) {
-			if(c instanceof Individu) {
+			//if(c instanceof Individu) {
 				if(c.equals(i2))
-					i2= couple;
-			}
+					i2 = couple;
+			//}
 		}
 	}
 	
