@@ -3,26 +3,42 @@ package composite;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Couple implements Composant {
+public class Couple implements Component {
 
-	Individu parent1;
-	Individu parent2;
+	Component parent1;
+	Component parent2;
 	Date dateMariage;
-	ArrayList<Composant> enfants;
+	ArrayList<Component> enfants;
 	
-	public Couple(Individu parent1, Individu parent2, Date datemariage) {
+	public Couple(Component parent1, Component parent2, Date datemariage) {
 		super();
 		this.parent1 = parent1;
 		this.parent2 = parent2;
 		dateMariage=datemariage;
-		enfants=new ArrayList<Composant>();
+		enfants=new ArrayList<Component>();
 	}
 	
-	public void addEnfant(Composant enfant) {
-		enfants.add(enfant);
+	public void add(Component composant) {
+		enfants.add(composant);
 	}
-	public void removeEnfant(Composant enfant) {
-		enfants.remove(enfant);
+	public void remove(Component composant) {
+		enfants.remove(composant);
 	}
+	
+	public void fonderFamille() {
+		
+	}
+	
+	public void affiche() {
+
+		parent1.affiche();
+		parent2.affiche();
+		System.out.println("enfants : ");
+		for(Component c : enfants) {
+			c.affiche();
+		}
+
+	}
+	
 	
 }
