@@ -24,8 +24,6 @@ public class StateContext {
 
 
 	public void lancer() {
-
-		String newLine = System.getProperty("line.separator");
 		
 		Scanner sc = new Scanner(System.in);
 		String str;
